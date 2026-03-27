@@ -94,10 +94,10 @@ export default function ImageSourcePanel({ onImageSelect, onColorSelect }: Image
             dragOver ? 'border-bayou-lime bg-green-50' : 'border-gray-300 hover:border-bayou-lime'
           }`}
         >
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-deep-black">
             Drag &amp; drop an image here, or click to browse
           </p>
-          <p className="text-xs text-gray-400 mt-1">JPG, PNG, or WebP</p>
+          <p className="text-xs text-gray-600 mt-1">JPG, PNG, or WebP</p>
           <input
             ref={fileInputRef}
             type="file"
@@ -141,7 +141,7 @@ export default function ImageSourcePanel({ onImageSelect, onColorSelect }: Image
                 className="w-10 h-10 rounded border border-gray-300 block"
                 style={{ backgroundColor: c.hex }}
               />
-              <span className="text-[10px] text-gray-600 leading-tight text-center">
+              <span className="text-[10px] text-deep-black leading-tight text-center">
                 {c.name}
               </span>
             </button>

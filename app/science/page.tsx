@@ -29,20 +29,20 @@ export default function SciencePage() {
             <h2 className="text-2xl font-semibold text-deep-black mb-3">
               Bass Don&rsquo;t See What You See
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               Largemouth bass are <strong>dichromats</strong> — they have only
               two types of cone photoreceptors, peaking at{' '}
               <strong>535&nbsp;nm (green)</strong> and{' '}
               <strong>614.5&nbsp;nm (red)</strong>. Humans are trichromats with
               blue, green, and red cones. Bass have <em>no blue cones</em>.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               This means blues and purples appear very dark — essentially black —
               to a bass. Meanwhile, chartreuse and white can be almost
               indistinguishable because both stimulate the green and red cones in
               similar ratios.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Source: Chen et al., 2019 — micro-spectrophotometry of
               largemouth-bass retinal cones.
             </p>
@@ -53,12 +53,12 @@ export default function SciencePage() {
             <h2 className="text-2xl font-semibold text-deep-black mb-3">
               Color Disappears With Depth
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               Water absorbs different wavelengths at dramatically different
               rates. Red light is absorbed roughly{' '}
               <strong>142&times; faster</strong> than blue. In practice:
             </p>
-            <ul className="list-disc list-inside text-gray-700 leading-relaxed mb-3 space-y-1">
+            <ul className="list-disc list-inside text-deep-black leading-relaxed mb-3 space-y-1">
               <li>
                 <strong>Red</strong> is effectively gone by ~15&nbsp;ft
               </li>
@@ -70,12 +70,12 @@ export default function SciencePage() {
                 silhouette contrast regardless of depth
               </li>
             </ul>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               This is why a red crankbait at 20&nbsp;ft looks the same as a
               black one — and why dark-colored lures remain effective in deep
               water.
             </p>
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-gray-600">
               Source: Pope &amp; Fry, 1997 — absorption spectrum of pure water,
               380–700&nbsp;nm.
             </p>
@@ -86,7 +86,7 @@ export default function SciencePage() {
             <h2 className="text-2xl font-semibold text-deep-black mb-3">
               Water Clarity Changes Everything
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               Real-world water is not pure. <strong>Tannins</strong> (dissolved
               organic matter) absorb short wavelengths aggressively, shifting
               available light toward the{' '}
@@ -94,7 +94,7 @@ export default function SciencePage() {
               scatters all wavelengths, reducing overall visibility without
               favoring a particular color.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               The practical result: a <em>green pumpkin</em> soft plastic that
               is perfect in clear water may need to shift to{' '}
               <em>chartreuse</em> in tannin-stained water to maintain the same
@@ -107,13 +107,13 @@ export default function SciencePage() {
             <h2 className="text-2xl font-semibold text-deep-black mb-3">
               Why Fluorescence Matters
             </h2>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               Fluorescent pigments absorb UV and short-wavelength light and
               re-emit it as <strong>visible light</strong>. This effectively
               makes the lure glow brighter than its surroundings, even in low
               light.
             </p>
-            <p className="text-gray-700 leading-relaxed mb-3">
+            <p className="text-deep-black leading-relaxed mb-3">
               Fluorescence is most effective in shallow, clear water (
               <strong>0–15&nbsp;ft</strong>) where UV penetration is high. In
               stained or tannic water the usable range drops to roughly{' '}
@@ -128,7 +128,7 @@ export default function SciencePage() {
               <summary className="cursor-pointer select-none px-5 py-4 text-lg font-semibold text-deep-black group-open:border-b group-open:border-gray-200">
                 The Math Behind the Tool
               </summary>
-              <div className="px-5 py-4 text-gray-700 leading-relaxed space-y-3">
+              <div className="px-5 py-4 text-deep-black leading-relaxed space-y-3">
                 <p>
                   Bass Vision Lab combines four foundational models to simulate
                   what a bass sees at a given depth and water clarity:
