@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "test": "jest"
+    "test": "jest",
+    "generate-luts": "npx tsx scripts/generate-luts.ts"
   },
   "dependencies": {
     "next": "16.2.1",
@@ -25,6 +26,7 @@
     "jest": "^30.3.0",
     "tailwindcss": "^4",
     "ts-jest": "^29.4.6",
+    "tsx": "^4.21.0",
     "typescript": "^5"
   }
 }
