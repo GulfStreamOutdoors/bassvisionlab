@@ -40,7 +40,6 @@ export default function Home() {
   }, []);
 
   const handleColorSelect = useCallback((hex: string) => {
-    // Create a 256x256 canvas filled with the color
     const canvas = document.createElement('canvas');
     canvas.width = 256;
     canvas.height = 256;
@@ -83,87 +82,39 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-white">
       <Header />
 
-      <main className="flex-1 flex flex-col lg:flex-row gap-4 p-4">
-        {/* Left sidebar: controls */}
-        <aside className="w-full lg:w-80 shrink-0 space-y-6">
-          <section>
-            <h2 className="text-sm font-bold text-deep-black uppercase tracking-wide mb-2">
-              View Mode
-            </h2>
-            <ViewModeSelector viewMode={viewMode} onChange={setViewMode} />
-          </section>
+      <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-6 space-y-6">
+        {/* View Mode Selector -- centered */}
+        <div className="flex justify-center">
+          <ViewModeSelector viewMode={viewMode} onChange={setViewMode} />
+        </div>
 
-          <section>
-            <h2 className="text-sm font-bold text-deep-black uppercase tracking-wide mb-2">
-              Water Parameters
-            </h2>
-            <ControlPanel
-              depthFt={depthFt}
-              onDepthFtChange={setDepthFt}
-              waterPreset={waterPreset}
-              onPresetChange={handlePresetChange}
-              cdomFactor={cdomFactor}
-              onCdomChange={setCdomFactor}
-              turbidity={turbidity}
-              onTurbidityChange={setTurbidity}
-            />
-          </section>
-
-          <section>
-            <h2 className="text-sm font-bold text-deep-black uppercase tracking-wide mb-2">
-              Image Source
-            </h2>
-            <ImageSourcePanel
-              onImageSelect={handleImageSelect}
-              onColorSelect={handleColorSelect}
-            />
-          </section>
-
-          {/* Action buttons */}
-          <div className="flex flex-col gap-2">
-            <button
-              onClick={handleDownloadLUT}
-              className="w-full bg-olive-green text-white px-4 py-2 rounded font-semibold text-sm hover:opacity-90"
-            >
-              Download .cube LUT
-            </button>
-            <button
-              onClick={handleExportImage}
-              disabled={!imageSrc}
-              className="w-full bg-deep-black text-bayou-lime px-4 py-2 rounded font-semibold text-sm hover:opacity-90 disabled:opacity-40"
-            >
-              Export Image
-            </button>
-          </div>
-        </aside>
-
-        {/* Main viewport area: side-by-side original + transformed */}
-        <div className="flex-1 flex flex-col lg:flex-row gap-4 min-h-[400px]">
+        {/* Side-by-side image comparison */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Original image */}
-          <div className="flex-1 flex flex-col border border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-light-gray px-3 py-1.5 text-xs font-semibold text-deep-black uppercase tracking-wide">
+          <div className="flex flex-col border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-light-gray px-3 py-2 text-xs font-bold text-deep-black uppercase tracking-wide">
               Original
             </div>
-            <div className="flex-1 flex items-center justify-center bg-gray-50 p-2">
+            <div className="flex-1 flex items-center justify-center bg-gray-50 p-2 min-h-[280px]">
               {originalSrc ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={originalSrc}
                   alt="Original"
-                  className="max-w-full max-h-full object-contain"
+                  className="max-w-full max-h-[400px] object-contain"
                 />
               ) : (
-                <span className="text-gray-400 text-sm">No image loaded</span>
+                <span className="text-gray-400 text-sm">Select an image below</span>
               )}
             </div>
           </div>
 
           {/* Transformed image (WebGL canvas) */}
-          <div className="flex-1 flex flex-col border border-gray-200 rounded-lg overflow-hidden">
-            <div className="bg-light-gray px-3 py-1.5 text-xs font-semibold text-deep-black uppercase tracking-wide">
-              {viewMode === 0 ? 'Underwater' : viewMode === 1 ? 'Bass Color' : 'Bass Contrast'}
+          <div className="flex flex-col border border-gray-200 rounded-lg overflow-hidden">
+            <div className="bg-light-gray px-3 py-2 text-xs font-bold text-deep-black uppercase tracking-wide">
+              {viewMode === 0 ? 'Underwater View' : viewMode === 1 ? 'Bass Color Vision' : 'Bass Contrast'}
             </div>
-            <div className="flex-1 flex items-center justify-center bg-gray-50 p-2">
+            <div className="flex-1 flex items-center justify-center bg-gray-50 p-2 min-h-[280px]">
               <ImageViewport
                 imageSrc={imageSrc}
                 depth={depthM}
@@ -174,6 +125,48 @@ export default function Home() {
               />
             </div>
           </div>
+        </div>
+
+        {/* Controls */}
+        <div className="bg-light-gray rounded-lg p-4">
+          <ControlPanel
+            depthFt={depthFt}
+            onDepthFtChange={setDepthFt}
+            waterPreset={waterPreset}
+            onPresetChange={handlePresetChange}
+            cdomFactor={cdomFactor}
+            onCdomChange={setCdomFactor}
+            turbidity={turbidity}
+            onTurbidityChange={setTurbidity}
+          />
+        </div>
+
+        {/* Image Source */}
+        <div className="bg-light-gray rounded-lg p-4">
+          <h2 className="text-sm font-bold text-deep-black uppercase tracking-wide mb-3">
+            Image Source
+          </h2>
+          <ImageSourcePanel
+            onImageSelect={handleImageSelect}
+            onColorSelect={handleColorSelect}
+          />
+        </div>
+
+        {/* Export Buttons */}
+        <div className="flex gap-3">
+          <button
+            onClick={handleDownloadLUT}
+            className="px-6 py-2.5 bg-bayou-lime text-deep-black rounded font-bold text-sm hover:brightness-90 transition"
+          >
+            Download .cube LUT
+          </button>
+          <button
+            onClick={handleExportImage}
+            disabled={!imageSrc}
+            className="px-6 py-2.5 bg-deep-black text-white rounded font-bold text-sm hover:bg-gray-800 transition disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            Export Image
+          </button>
         </div>
       </main>
 
