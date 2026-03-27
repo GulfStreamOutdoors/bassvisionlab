@@ -1,4 +1,4 @@
-import { transformColor, ViewMode, type WaterParams, type RGB } from '../spectral/transform-engine';
+import { transformColor, ViewMode, type WaterParams } from '../spectral/transform-engine';
 
 export function generateCubeLUT(
   water: WaterParams,

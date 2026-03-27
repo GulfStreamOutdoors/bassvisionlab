@@ -31,6 +31,18 @@ export class SpectralRenderer {
     if (!gl) throw new Error('WebGL 2 not supported');
     this.gl = gl;
 
+    // Check for float texture support (R32F textures used for spectral data).
+    // R32F is part of WebGL 2 core for texture sampling, but rendering to
+    // float textures requires EXT_color_buffer_float. We only sample, so this
+    // is a non-blocking warning.
+    const floatExt = gl.getExtension('EXT_color_buffer_float');
+    if (!floatExt) {
+      console.warn(
+        'EXT_color_buffer_float not available. ' +
+        'R32F textures will work for sampling but cannot be used as render targets.'
+      );
+    }
+
     this.program = this.createProgram();
     this.cacheUniformLocations();
     this.vao = this.setupGeometry();
