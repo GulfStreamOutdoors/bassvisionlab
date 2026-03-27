@@ -42,3 +42,4 @@ next-env.d.ts
 
 # generated LUT files (rebuild with: npm run generate-luts)
 public/luts/*.cube
+public/luts/*.zip

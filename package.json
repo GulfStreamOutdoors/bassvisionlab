@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "jest",
-    "generate-luts": "npx tsx scripts/generate-luts.ts"
+    "generate-luts": "npx tsx scripts/generate-luts.ts",
+    "bundle-luts": "npx tsx scripts/bundle-luts.ts"
   },
   "dependencies": {
     "next": "16.2.1",
