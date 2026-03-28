@@ -220,6 +220,22 @@ export default function Home() {
       <Header />
 
       <main className="flex-1 max-w-7xl mx-auto w-full px-4 py-6 space-y-6">
+        {/* Image Source — first, so users know to pick an image */}
+        <div className="bg-light-gray rounded-lg p-4">
+          <h2 className="text-sm font-bold text-deep-black uppercase tracking-wide mb-1">
+            Start Here — Choose a Lure Image
+          </h2>
+          <p className="text-xs text-gray-500 mb-3">
+            Best results: a clean, well-lit photo of your lure on a white or neutral background.
+            Avoid underwater shots — the tool simulates that for you.
+            JPG, PNG, or WebP up to 5 MB.
+          </p>
+          <ImageSourcePanel
+            onImageSelect={handleImageSelect}
+            onColorSelect={handleColorSelect}
+          />
+        </div>
+
         {/* 2x2 Grid: Original + 3 Transform Views */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {/* Original */}
@@ -238,7 +254,7 @@ export default function Home() {
                   className="max-w-full max-h-[350px] object-contain"
                 />
               ) : (
-                <span className="text-gray-600 text-sm">Select an image below</span>
+                <span className="text-gray-600 text-sm">Select an image above to get started</span>
               )}
             </div>
           </div>
@@ -356,17 +372,6 @@ export default function Home() {
             onCdomChange={setCdomFactor}
             turbidity={turbidity}
             onTurbidityChange={setTurbidity}
-          />
-        </div>
-
-        {/* Image Source */}
-        <div className="bg-light-gray rounded-lg p-4">
-          <h2 className="text-sm font-bold text-deep-black uppercase tracking-wide mb-3">
-            Image Source
-          </h2>
-          <ImageSourcePanel
-            onImageSelect={handleImageSelect}
-            onColorSelect={handleColorSelect}
           />
         </div>
 
